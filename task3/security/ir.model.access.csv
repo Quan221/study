@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+data1,enmasys1,model_project_study,base.group_user,1,1,0,0
+data2,enmasys2,model_project_study,base.group_system,1,1,1,1
+data3,enmasys3,model_product,base.group_user,1,1,0,0
+data4,enmasys4,model_product,base.group_system,1,1,1,1
+data5,enmasys5,model_project2,base.group_user,1,1,0,0
+data6,enmasys6,model_project2,base.group_system,1,1,1,1
+data7,enmasys7,model_users,base.group_user,1,1,0,0
+data8,enmasys8,model_users,base.group_system,1,1,1,1
+data9,enmasys9,model_project_tag,base.group_user,1,1,0,0
+data10,enmasys10,model_project_tag,base.group_system,1,1,1,1

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<record id="project_search" model="ir.ui.view">
+		<field name="name">project.study.search</field>
+		<field name="model">project.study</field>
+		<field name="arch" type="xml">
+						<search string="My Task">
+							<field name="assign_to" ></field>
+							<field name="name" />
+							<filter string="My_task"
+									name="status"
+									domain="[('assign_to', '=', uid)]"
+							/>
+							<group expand="1" string="Group by" >
+								<filter name="assign_to" string=" Assigned To" context="{'group_by':'assign_to'}" />
+								<filter name="status" string="Status" context="{'group_by':'status'}" />
+							</group>
+						</search>
+		</field>
+	</record>
+
+
+	<record id="project_manager_view_form" model="ir.ui.view">
+		<field name="name">project.study</field>
+		<field name="model">project.study</field>
+		<field name="arch" type="xml">
+					<form string="Project_study">
+
+						<sheet>
+
+								<group>
+									<group>
+									<field name="name" />
+									</group>
+									<group>
+										<field name="dateline"></field>
+									</group>
+									<group>
+										<field name="note" />
+										<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+									</group>
+									<group >
+										<field name="assign_to"/>
+										<field name="status" ></field>
+										<field name="customer" />
+									</group>
+								</group>
+										<field name = "description" widget="html"  />
+								<group>
+									<field name="project_manager"/>
+								</group>
+								<group>
+									<field name="project_study"/>
+								</group>
+						</sheet>
+					</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="main_project_tree">
+            <field name="name">project.study</field>
+            <field name="model">project.study</field>
+            <field name="arch" type="xml">
+                <tree default_order=" assign_to" >
+                    <field name="name"/>
+                    <field name="dateline"/>
+					<field name="status" ></field>
+                </tree>
+            </field>
+	</record>
+
+	<record id="main_action" model="ir.actions.act_window">
+		<field name="name">Project_manager</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">project.study</field>
+		<field name="view_mode">tree,form</field>
+		<field name="context">{'search_default_status': 1}</field>
+	</record>
+	<menuitem id="menu_project_study" name="Project_Study" parent="menu_field" action='main_action' />
+</odoo>
